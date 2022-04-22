@@ -10,9 +10,8 @@ contract Script is Test {
     Cheats script_vm = Cheats(HEVM_ADDRESS);
 
     function deploy() public {
-        emit log_uint(script_vm.getNonce(msg.sender));
-        script_vm.broadcast(msg.sender);
+        script_vm.startBroadcast(address(0x57c89A31e0a24f116D0B0Fe2b5b65fE89762E622));
         Contract c = new Contract();
-        emit log_address(address(c));
+        c.test(address(c));
     }
 }
